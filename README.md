@@ -9,9 +9,14 @@
 
 **A blazing-fast, responsive React dashboard showcasing 250+ countries with region filtering, client-side pagination, and buttery-smooth UX. Built for production-scale performance and interview-ready code quality.**
 
-![Dashboard Screenshot](https://via.placeholder.com/1200x600/1e3a8a/ffffff?text=India+Data+Hub+Dashboard+%F0%9F%87%AE%F0%9F%87%B3)
-![Dashboard Screenshot](https://via.placeholder.com/1200x600/1e3a8a/ffffff?text=India+Data+Hub+Dashboard+%F0%9F%87%AE%F0%9F%87%B3)
-![Dashboard Screenshot](https://via.placeholder.com/1200x600/1e3a8a/ffffff?text=India+Data+Hub+Dashboard+%F0%9F%87%AE%F0%9F%87%B3)
+## 📊 Dashboard Preview
+
+![Dashboard Screenshot 1](./src/assets/Screenshot%20(42).png)
+![Dashboard Screenshot 2](./src/assets/Screenshot%20(43).png)
+![Dashboard Screenshot 3](./src/assets/Screenshot%20(44).png)
+![Dashboard Screenshot 4](./src/assets/Screenshot%20(45).png)
+![Dashboard Screenshot 5](./src/assets/Screenshot%20(46).png)
+
 
 ## ⚡ **Live Demo**
 🔗 [Deployed on Vercel](https://india-data-hub.vercel.app) *(Click to see magic!)*
