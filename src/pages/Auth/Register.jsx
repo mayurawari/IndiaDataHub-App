@@ -29,52 +29,52 @@ export const Register = () => {
     }
 
     let existinguser = JSON.parse(localStorage.getItem("users")) || [];
-    
-    for(let i =0;i<existinguser?.length;i++){
-         if(existinguser && existinguser[i].username === username){
-            setError("User already exists with same username. Please login.");
-            return;
-         }
-         else if (existinguser[i].email === email){
-            setError("User already exists with same email. Please login.");
-            return;
-         }
-    }
-    
 
-    let newuserdata = [...existinguser || [], userdata];
+    for (let i = 0; i < existinguser.length; i++) {
+      if (existinguser[i].username === username) {
+        setError("User already exists with same username. Please login.");
+        return;
+      } else if (existinguser[i].email === email) {
+        setError("User already exists with same email. Please login.");
+        return;
+      }
+    }
+
+    let newuserdata = [...existinguser, userdata];
     localStorage.setItem("users", JSON.stringify(newuserdata));
-    navigate("/login");
+    navigate("/");
   };
 
   const onLoginClick = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   return (
     <div className="w-full min-h-screen">
-      <header className="h-24 bg-yellow-300 flex items-center justify-between px-10 border-b-2 border-black">
-        <h1 className="font-medium text-4xl text-black hover:text-gray-600 cursor-pointer">
+      <header className="h-20 sm:h-24 bg-yellow-300 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-10 border-b-2 border-black gap-2">
+        <h1 className="font-medium text-xl sm:text-3xl lg:text-4xl text-black hover:text-gray-600 cursor-pointer">
           IDH-IndiaDataHub
         </h1>
 
-        <div className="flex gap-2  justify-center items-center">
-          <p className="text-s text-center text-black/70 ">
-            Already have an account?{" "}
+        <div className="flex gap-2 justify-center items-center">
+          <p className="text-sm sm:text-base text-black/70 text-center">
+            Already have an account?
           </p>
           <Button Text="Login" onClick={onLoginClick} />
         </div>
       </header>
 
-      <div className="flex justify-center items-center mt-20">
-        <div className="w-105 border-2 border-black rounded-3xl bg-yellow-300 shadow-lg">
-          <h2 className="text-2xl font-bold text-center p-4">Create Account</h2>
+      <div className="flex justify-center items-center px-4 py-12 sm:py-20">
+        <div className="w-full max-w-md sm:max-w-lg border-2 border-black rounded-3xl bg-yellow-300 shadow-lg">
+          <h2 className="text-xl sm:text-2xl font-bold text-center p-4">
+            Create Account
+          </h2>
 
           <hr className="border-black" />
 
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 px-10 py-6"
+            className="flex flex-col gap-4 px-6 sm:px-10 py-6"
           >
             <div className="flex flex-col gap-1">
               <label htmlFor="username" className="font-medium">
@@ -85,7 +85,7 @@ export const Register = () => {
                 id="username"
                 value={userdata.username}
                 onChange={handleChange}
-                className="px-3 py-2 rounded-lg  bg-yellow-100 focus:outline-none focus:ring-1 focus:ring-black"
+                className="px-3 py-2 rounded-lg bg-yellow-100 focus:outline-none focus:ring-1 focus:ring-black"
                 placeholder="Your name"
               />
             </div>
@@ -99,7 +99,7 @@ export const Register = () => {
                 id="email"
                 value={userdata.email}
                 onChange={handleChange}
-                className="px-3 py-2 rounded-lg  bg-yellow-100 focus:outline-none focus:ring-1 focus:ring-black"
+                className="px-3 py-2 rounded-lg bg-yellow-100 focus:outline-none focus:ring-1 focus:ring-black"
                 placeholder="Type your email"
               />
             </div>
@@ -113,15 +113,17 @@ export const Register = () => {
                 id="password"
                 value={userdata.password}
                 onChange={handleChange}
-                className="px-3 py-2 rounded-lg  bg-yellow-100 focus:outline-none focus:ring-1 focus:ring-black"
+                className="px-3 py-2 rounded-lg bg-yellow-100 focus:outline-none focus:ring-1 focus:ring-black"
                 placeholder="••••••"
               />
             </div>
 
             {error && (
-                <div className="w-full justify-center items-center bg-red-400 p-2 rounded-2xl">
-                    <p className="text-red-700 text-sm font-medium">{error}</p>
-                </div>
+              <div className="w-full bg-red-400 p-2 rounded-2xl text-center">
+                <p className="text-red-700 text-sm font-medium">
+                  {error}
+                </p>
+              </div>
             )}
 
             <button
@@ -135,4 +137,4 @@ export const Register = () => {
       </div>
     </div>
   );
-}
+};

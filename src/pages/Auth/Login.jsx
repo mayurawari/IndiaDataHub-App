@@ -9,8 +9,9 @@ export const Login = () => {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const {isloggedin, user, login, logout } = useContext(AuthContext);
+  const { isloggedin, user, login, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setUserdata({ ...userdata, [id]: value });
@@ -19,6 +20,7 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+
     const { username, password } = userdata;
     const storedUserdata = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -40,16 +42,19 @@ export const Login = () => {
     setError("Invalid username or password");
     setLoading(false);
   };
+
   return (
-    <div className="w-full h-lvh flex flex-col justify-center items-center">
-      <div className="w-105 h-auto border-2 border-black rounded-3xl bg-yellow-300 shadow-lg">
-        <h1 className="text-2xl font-bold text-center p-4">Login</h1>
+    <div className="w-full min-h-screen flex flex-col justify-center items-center px-4">
+      <div className="w-full max-w-md sm:max-w-lg border-2 border-black rounded-3xl bg-yellow-300 shadow-lg">
+        <h1 className="text-xl sm:text-2xl font-bold text-center p-4">
+          Login
+        </h1>
 
         <hr className="border-black" />
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 px-10 py-6"
+          className="flex flex-col gap-4 px-6 sm:px-10 py-6"
         >
           <div className="flex flex-col gap-1">
             <label htmlFor="username" className="font-medium">
@@ -80,8 +85,10 @@ export const Login = () => {
           </div>
 
           {error && (
-            <div className="w-full justify-center items-center bg-red-400 p-2 rounded-2xl">
-              <p className="text-red-700 text-sm font-medium">{error}</p>
+            <div className="w-full bg-red-400 p-2 rounded-2xl text-center">
+              <p className="text-red-700 text-sm font-medium">
+                {error}
+              </p>
             </div>
           )}
 
@@ -99,11 +106,12 @@ export const Login = () => {
           </button>
         </form>
       </div>
-      <span className="mt-10">
-        Register here if not registered ?{" "}
+
+      <span className="mt-8 text-sm sm:text-base text-center">
+        Register here if not registered?{" "}
         <Link to="/register" className="text-blue-500 hover:text-blue-700">
           Register
-        </Link>{" "}
+        </Link>
       </span>
     </div>
   );
