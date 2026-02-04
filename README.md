@@ -19,7 +19,7 @@
 
 
 ## ⚡ **Live Demo**
-🔗 [Deployed on Vercel](https://india-data-hub.vercel.app) *(Click to see magic!)*
+🔗 [Deployed on Vercel](https://india-data-hub-app.vercel.app/) *(Click to see magic!)*
 
 ---
 
